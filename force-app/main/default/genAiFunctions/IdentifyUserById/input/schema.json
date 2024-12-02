@@ -1,0 +1,14 @@
+{
+  "required" : [ "userId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "userId" : {
+      "title" : "userId",
+      "description" : "18-digit Salesforce ID of the user, identified as an output of the previous action as confirmed by the user",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

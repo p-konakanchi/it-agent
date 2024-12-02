@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates a case for the support representative to look into the user&apos;s issue. Call this action as a last resort when you are unable to resolve the problem. Offer to create a case and then call this action if the user agrees.</description>
+    <invocationTarget>Create_User_Access_Case</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <masterLabel>Create User Access Case</masterLabel>
+</GenAiFunction>

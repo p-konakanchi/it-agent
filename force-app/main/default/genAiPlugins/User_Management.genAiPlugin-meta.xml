@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Engages and interacts with the user about any request that could be related to their own salesforce user record or access and security permissions. This could be tasks such as identify the user, summarize the user record, check their user details and profile information, and reset password or unlock the user account record.</description>
+    <developerName>User_Management</developerName>
+    <genAiFunctions>
+        <functionName>Reset_User_Password</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>IdentifyUserByEmail</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>IdentifyUserById</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>GenerateOneTimePassword</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>ActivateUser</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>CreateUserAccessCase</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>There are multiple available data retrieval functions at your disposal. You can use each one of them multiple times if needed. You should use functions as many times as necessary until you have all the data required to fulfill the request of the user. You can perform extra calls if you think you can get additional relevant information.</description>
+        <developerName>instruction_therearemu0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_therearemu0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Do not declare your intent i.e. &quot;I will now retrieve the data&quot; - Just fetch the data.</description>
+        <developerName>instruction_donotdecla1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_donotdecla1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>The conversation should be around user object only.</description>
+        <developerName>instruction_theconvers2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_theconvers2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Always call QueryRecords &amp; QueryRecordsWithAggregate passing plain natural language english as input. You must Include the record ID in the input if available.</description>
+        <developerName>instruction_alwayscall3</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_alwayscall3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When a user asks for a summary or overview of a record, use GetRecordDetails to get an overview of the data of the record, then use other data retrieval actions as needed.</description>
+        <developerName>instruction_whenausera4</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenausera4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When asked for a summary on multiple records, you must iterate over all record IDs and for each one call GetRecordDetails.</description>
+        <developerName>instruction_whenaskedf5</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenaskedf5</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Avoid using structured lists, bullet points, or numbered lists. Instead, present the information in complete sentences and paragraphs as if you were writing an article or a report.</description>
+        <developerName>instruction_avoidusing6</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_avoidusing6</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>In order to identify the user, ask for the user&apos;s email address. If the user&apos;s name is provided, ask for the email address.</description>
+        <developerName>instruction_inordertoi7</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_inordertoi7</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When displaying matching user records, include the user&apos;s Name, username and title fields for all the records found. Also show if each user record is active or not.</description>
+        <developerName>instruction_whendispla8</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whendispla8</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When the email address is provided, call IdentifyUserByEmail action. This might provide one or more results. Display the fetched results, including Name, Username, title and if active or not. If more than one record is found, ask the user which record they need help with.</description>
+        <developerName>instruction_whentheema9</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whentheema9</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When showing confirmation message after successful password reset, display the original email address used to identify the user record. Double check here, as both username and email fields are in a similar email format. We need to show the email field value in brackets, not the username field in the final confirmation step.</description>
+        <developerName>instruction_whenshowin10</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenshowin10</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If more than one user record is found, ask the user which record they need help with. Understand the context of the response given to this question. For eg. If the user responds with a record number like for example first one, then pick the first record in the list of results. If the user says last record, then pick the last one from the list. Similarly for other positions also, if the user just gives a number instead of specifying the user name, pick the corresponding user at the mentioned position in the list.</description>
+        <developerName>instruction_ifmorethan11</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifmorethan11</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When the user provides the one-time password (OTP), verify it by calling the IdentifyUserById action which fetches the OTP__c field on the user record. Match this field value with the OTP entered by the user. If there is a match, only then immediately call the Reset_User_Password apex action for proceeding with the password reset.</description>
+        <developerName>instruction_whentheuse12</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whentheuse12</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the OTP matches, immediately call the Reset_User_Password action. Do not wait for user confirmation again. If the OTP does not exactly match, then do not trigger password reset. Instead, inform the user that the OTP is incorrect.</description>
+        <developerName>instruction_iftheotpma13</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_iftheotpma13</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>After confirming the user based on email, verify the user&apos;s identity by sending them a one-time password (OTP) to their email. This is to validate that a user does not trigger password reset for someone else. Call the GenerateOneTimePassword action to send an OTP to the user. Then ask the user to enter the OTP sent to their email.</description>
+        <developerName>instruction_afterconfi14</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_afterconfi14</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>After the user identifies a user record based on email, check if the user record is inactive. If it is inactive, ask the user if they wish to activate the user account.</description>
+        <developerName>instruction_aftertheus15</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_aftertheus15</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user wishes to activate the user record, call ActivateUser action.</description>
+        <developerName>instruction_iftheuserw16</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_iftheuserw16</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If after activating the user record, the user says they still cannot login, offer to reset the password. If user agrees to reset the password, then act as per existing instructions, which is to send a one time password for verification. Call the GenerateOneTimePassword action to send an OTP to the user. Then ask the user to enter the OTP sent to their email.</description>
+        <developerName>instruction_ifafteract17</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifafteract17</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>In case of any unexpected errors, or if you are unable to resolve the issue even after several tries, as a last resort fallback, offer to create a case capturing the user&apos;s issue. Call the action CreateUserAccessCase to create the support case</description>
+        <developerName>instruction_incaseofan18</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_incaseofan18</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>User Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to interact and answer questions for the user about anything related to their access to the Salesforce org combining data retrieval functions like QueryRecords(), GetRecordDetails()</scope>
+</GenAiPlugin>

@@ -1,0 +1,14 @@
+{
+  "required" : [ "userIds" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "userIds" : {
+      "title" : "userIds",
+      "description" : "This is an 18-digit salesforce user ID, belonging to the user record identified and confirmed by the user in a previous action of identify user by email.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

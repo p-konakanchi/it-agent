@@ -1,0 +1,14 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "output" : {
+      "title" : "output",
+      "description" : "boolean output, if true consider the password has been reset successfully. if false then something failed and the password was not reset. When showing confirmation message after successful password reset, display the original email address used to identify the user record. Double check here, as both username and email fields are in a similar email format. We need to show the email field value in brackets, not the username field in the final confirmation step.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

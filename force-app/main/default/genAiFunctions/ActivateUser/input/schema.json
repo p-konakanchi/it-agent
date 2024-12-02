@@ -1,0 +1,14 @@
+{
+  "required" : [ "userId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "userId" : {
+      "title" : "userId",
+      "description" : "18 digit salesforce Id of the user record obtained from the previous action during the conversation where the user confirmed the user record based on email.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
