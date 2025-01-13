@@ -12,5 +12,9 @@
         <members>Case.AllOpenCases</members>
         <name>ListView</name>
     </types>
+     <types>
+        <members>CaseType</members>
+        <name>StandardValueSet</name>
+    </types>
     <version>62.0</version>
 </Package>
