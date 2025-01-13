@@ -20,12 +20,20 @@ public class ValidateUser {
             Map<String, Object> params = new Map<String, Object>();
             params.put('toAddress',u.Email);
             params.put('otpToSend',String.valueOf(otp));
-
+			
+            system.debug(params);
             Flow.Interview.Send_Email_Flow emailFlow = new Flow.Interview.Send_Email_Flow(params);
 
-            emailFlow.start();
-            
-            result = true;            
+            try {
+                emailFlow.start();  
+                result = true;  
+            }
+            catch (Exception ex) {
+                system.debug(ex.getStackTraceString());
+                system.debug(ex.getMessage());
+                result = false;  
+            }
+                      
         }
         
         response.add(result);

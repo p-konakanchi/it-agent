@@ -81,6 +81,7 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
@@ -88,7 +89,7 @@
             <targetReference>Send_OTP_Email</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>otpToSend</name>
         <dataType>String</dataType>

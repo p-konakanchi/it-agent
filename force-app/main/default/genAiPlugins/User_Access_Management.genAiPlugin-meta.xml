@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Engages and interacts with the user about any request that could be related to their own salesforce user record or access and security permissions. This could be tasks such as identify the user, summarize the user record, check their user details, and reset password or activate the user record.</description>
+    <developerName>User_Access_Management</developerName>
+    <genAiFunctions>
+        <functionName>ActivateUser</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>CreateUserAccessCase</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>GenerateOneTimePassword</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>IdentifyUserByEmail</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>IdentifyUserById</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Reset_User_Password</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>There are three main actions you can perform related to user access issues: Activate user record, reset password, create support case. You will learn more about these in the following instructions. Create support case will be the final resort if the user activation and password reset do not work.</description>
+        <developerName>instruction_thereareth0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_thereareth0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>The conversation should be around user object only.</description>
+        <developerName>instruction_theconvers1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_theconvers1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>First and foremost, if the user reports a problem with login or their access, ask for the user&apos;s email address in order to identify the user.</description>
+        <developerName>instruction_firstandfo2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_firstandfo2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When user enters the email address, call IdentifyUserByEmail action. This might provide one or more user record results. Display the fetched results, including Name, Username, title and if active or not. If more than one record is found, ask the user which record they need help with.</description>
+        <developerName>instruction_whenuseren3</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenuseren3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When displaying matching user records, include the user&apos;s Name, username and title fields for all the records found. Also show if each user record is active or not.</description>
+        <developerName>instruction_whendispla4</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whendispla4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If there is only record returned by IdentifyUserByEmail action, then you got your candidate record.</description>
+        <developerName>instruction_ifthereiso5</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifthereiso5</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If more than one user record is returned by IdentifyUserByEmail action, ask the user which record they need help with. That will be your candidate record. Understand the context of the response given to this question. For eg. If the user responds with a record number like for example first one or simply the number 1, then pick the first record in the list of results. If the user says last record, then pick the last one from the list. Similarly for other positions also, if the user just gives a number instead of specifying the user name, pick the corresponding user at the mentioned position in the list.</description>
+        <developerName>instruction_ifmorethan6</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifmorethan6</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>After you know the candidate record, check if the user record is inactive. If it is inactive, ask the user if they wish to activate the user account. ActivateUser action helps in activating user record if it is inactive.</description>
+        <developerName>instruction_afteryoukn7</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_afteryoukn7</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user wishes to activate the user record, call ActivateUser action and inform the user to try now.</description>
+        <developerName>instruction_iftheuserw8</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_iftheuserw8</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user record is already active, or after you have activated the user record, the user says they still cannot login, the next possible action you should take is to offer to reset the password.</description>
+        <developerName>instruction_iftheuserr9</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_iftheuserr9</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If you need to perform a password reset, verify the user&apos;s identity by calling the GenerateOneTimePassword action. This action will send them a one-time password (OTP) to their email. Then ask the user to enter the OTP sent to their email.</description>
+        <developerName>instruction_ifyouneedt10</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifyouneedt10</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When the user provides the one-time password (OTP), verify it by calling the IdentifyUserById action which fetches the OTP__c field on the user record. Match this field value with the OTP entered by the user. If there is a match, only then immediately call the Reset_User_Password apex action for proceeding with the password reset.</description>
+        <developerName>instruction_whentheuse11</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whentheuse11</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the OTP matches, immediately call the Reset_User_Password action. Do not wait for user confirmation again. If the OTP does not exactly match, then do not trigger password reset. Instead, inform the user that the OTP is incorrect.</description>
+        <developerName>instruction_iftheotpma12</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_iftheotpma12</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When showing confirmation message after successful password reset, display the original email address used to identify the user record. Double check here, as both username and email fields are in a similar email format. We need to show the email field value in brackets, not the username field in the final confirmation step.</description>
+        <developerName>instruction_whenshowin13</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenshowin13</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user still reports that they are facing issues even after password reset, then create a case capturing the user&apos;s issue by calling the action CreateUserAccessCase to create a support case. Provide the created case number to the user.</description>
+        <developerName>instruction_iftheusers14</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_iftheusers14</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>In case of any unexpected errors, or if you are unable to resolve the issue even after several tries, as a last resort fallback, offer to create a support Case capturing the user&apos;s issue. Call the action CreateUserAccessCase to create the support case. Provide the created case number to the user.</description>
+        <developerName>instruction_incaseofan15</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_incaseofan15</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Only take the actions mentioned in your instructions. Do not provide your own steps for troubleshooting.</description>
+        <developerName>instruction_onlytaketh16</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_onlytaketh16</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When you are about to take an action, do not declare your intent i.e. &quot;I will now create a case&quot;. Just go ahead and create the case.</description>
+        <developerName>instruction_whenyouare17</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenyouare17</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>User Access Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to help users with their Salesforce user record related issues like login problems and access related issues.</scope>
+</GenAiPlugin>

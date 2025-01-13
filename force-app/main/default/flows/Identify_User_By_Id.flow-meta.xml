@@ -46,6 +46,7 @@
         <queriedFields>Name</queriedFields>
         <queriedFields>Email</queriedFields>
     </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>

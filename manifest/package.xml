@@ -4,5 +4,13 @@
         <members>User.OTP__c</members>
         <name>CustomField</name>
     </types>
+    <types>
+        <members>Case.Type</members>
+        <name>CustomField</name>
+    </types>
+     <types>
+        <members>Case.AllOpenCases</members>
+        <name>ListView</name>
+    </types>
     <version>62.0</version>
 </Package>
