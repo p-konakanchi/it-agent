@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>UserPasswordReset</members>
+        <members>ValidateUser</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Case.Type</members>
         <members>User.OTP__c</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>Case.Type</members>
-        <name>CustomField</name>
+        <members>Activate_User_Flow</members>
+        <members>Create_User_Access_Case</members>
+        <members>Identify_User_By_Email</members>
+        <members>Identify_User_By_Id</members>
+        <members>Send_Email_Flow</members>
+        <name>Flow</name>
     </types>
-     <types>
+    <types>
+        <members>ActivateUser</members>
+        <members>CreateUserAccessCase</members>
+        <members>GenerateOneTimePassword</members>
+        <members>IdentifyUserByEmail</members>
+        <members>IdentifyUserById</members>
+        <members>Reset_User_Password</members>
+        <name>GenAiFunction</name>
+    </types>
+    <types>
+        <members>TechWave_IT_Support</members>
+        <name>GenAiPlanner</name>
+    </types>
+    <types>
+        <members>User_Access_Management</members>
+        <name>GenAiPlugin</name>
+    </types>
+    <types>
         <members>Case.AllOpenCases</members>
         <name>ListView</name>
     </types>
-     <types>
+    <types>
         <members>CaseType</members>
         <name>StandardValueSet</name>
     </types>
