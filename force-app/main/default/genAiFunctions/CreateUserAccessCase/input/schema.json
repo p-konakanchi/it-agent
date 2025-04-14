@@ -4,7 +4,7 @@
   "properties" : {
     "description" : {
       "title" : "description",
-      "description" : "This is a long text area field and can take as much information as you can provide. Give details of the issue the user has been facing, along with what has been tried so far to resolve. Include user Id, username, email and fullname. Clearly mention what problem the user is facing and what you have tried in order to resolve before offering to create a support case.",
+      "description" : "This is a long text area field and can take as much information as you can provide. This is to provide the helpdesk person with as much details as possible so they can investigate the issue. Give details of the issue the user has been facing, along with what has been tried so far to resolve. Include user Id, username, email and fullname. Clearly mention what problem the user is facing and what you have tried in order to resolve before offering to create a support case.",
       "lightning:type" : "lightning__textType",
       "lightning:isPII" : false,
       "copilotAction:isUserInput" : false

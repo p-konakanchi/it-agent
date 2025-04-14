@@ -22,6 +22,7 @@ public without sharing class ValidateUser {
                 params.put('toAddress',u.Email);
                 params.put('otpToSend',String.valueOf(otp));
                 
+                system.debug(params);
                 Flow.Interview.Send_Email_Flow emailFlow = new Flow.Interview.Send_Email_Flow(params);                
                 
                 emailFlow.start();  
