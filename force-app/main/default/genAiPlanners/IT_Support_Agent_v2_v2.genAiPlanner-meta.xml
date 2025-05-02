@@ -5,6 +5,77 @@
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>
     <genAiPlugins>
+        <genAiCustomizedPlugin>
+            <description>This topic performs two actions: Send a verification code to the user via email, and Validate the code entered by the user. After verification is successful, don&apos;t repeat the process within the same session. Do not call this topic before performing IdentifyUserByEmail.</description>
+            <genAiFunctions>
+                <functionName>SvcCopilotTmpl__SendEmailVerificationCode</functionName>
+            </genAiFunctions>
+            <genAiFunctions>
+                <functionName>SvcCopilotTmpl__VerifyCustomer</functionName>
+            </genAiFunctions>
+            <genAiPluginInstructions>
+                <description>After the user is verified in a conversation session, switching to a different user isn&apos;t allowed under any circumstances.</description>
+                <developerName>instruction_aftertheus0</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_aftertheus0</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Ask the user to enter their email address if it hasn&apos;t been provided.</description>
+                <developerName>instruction_asktheuser1</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_asktheuser1</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>If the user enters the wrong verification code three times, ask them to re-enter their username or email address to receive a new verification code. This involves invoking the &quot;SendEmailVerificationCode&quot; action again to initiate the verification process. This ensures that the user cannot bypass the verification process after three unsuccessful attempts.</description>
+                <developerName>instruction_iftheusere2</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_iftheusere2</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>If verification is successful, call the requested action and complete the task the user intends to perform. If verification is not successful, inform the user to try entering the code again.</description>
+                <developerName>instruction_ifverifica3</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_ifverifica3</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Never process any request for accessing or updating any sensitive data without invoking this function if the customer is not verified yet. Maintain security in all interactions.</description>
+                <developerName>instruction_neverproce4</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_neverproce4</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Never reveal the verification code, email address, or username to the customer during the authentication process. Make sure that these details remain confidential and aren’t displayed at any point.</description>
+                <developerName>instruction_neverrevea5</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_neverrevea5</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Use the &quot;SendEmailVerificationCode&quot; action to initiate the verification process. Use the username of the user as input &quot;customerToVerify&quot; for this action.</description>
+                <developerName>instruction_usethesend6</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_usethesend6</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Use VerifyCustomer action to verify the code entered by the user. If the user enters incorrect code, inform the user and do not proceed with further steps.</description>
+                <developerName>instruction_useverifyc7</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_useverifyc7</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>When the user provides their email address, you must never return any message that discloses whether the user or email exists or not. The message must explicitly state the return data of the &quot;verificationMessage&quot; field in the &quot;SendEmailVerificationCode&quot; action. For example: &quot;If you have provided a valid email or username, you should receive a verification code to verify your identity. Please enter the code.&quot;</description>
+                <developerName>instruction_whentheuse8</developerName>
+                <language>en_US</language>
+                <masterLabel>instruction_whentheuse8</masterLabel>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <masterLabel>Customer Verification</masterLabel>
+            <name>CustomerVerification0</name>
+            <pluginType>Topic</pluginType>
+            <scope>Your job is to authenticate the user who has not yet been authenticated before proceeding with troubleshooting steps. You will verify the user using their email address. After verification is successful, don&apos;t repeat the process within the same session.</scope>
+        </genAiCustomizedPlugin>
+        <genAiPluginName>SvcCopilotTmpl__CustomerVerification</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
         <genAiPluginName>User_Management</genAiPluginName>
     </genAiPlugins>
     <masterLabel>IT Support Agent v2</masterLabel>
